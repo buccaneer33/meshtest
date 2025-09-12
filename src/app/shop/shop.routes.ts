@@ -4,9 +4,10 @@ import { GoodsComponent } from './goods/goods.component';
 export const ShopRoutes: Route[] =  [
   {
     path: '',
-    children: [
+    component: GoodsComponent,
+    /*children: [
       {
-        path: 'page',
+        path: 'item',
         pathMatch: 'prefix',
         children: [
           {
@@ -25,6 +26,6 @@ export const ShopRoutes: Route[] =  [
         redirectTo: 'page',
         pathMatch: 'full'
       }
-    ]
+    ]*/
   },
 ];
