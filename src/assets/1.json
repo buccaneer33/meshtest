@@ -1,0 +1,114 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Футболка",
+      "description": "Хлопковая футболка белого цвета.",
+      "price": 1200,
+      "category": "одежда",
+      "brand": "Adidas",
+      "in_stock": true,
+      "discount": null,
+      "quantity_in_stock": 15
+    },
+    {
+      "id": 2,
+      "name": "Смартфон",
+      "description": "Новый смартфон с AMOLED экраном и мощным процессором.",
+      "price": 45000,
+      "category": "электроника",
+      "brand": "Samsung",
+      "in_stock": true,
+      "discount": 10,
+      "quantity_in_stock": 5
+    },
+    {
+      "id": 3,
+      "name": "Обувь спортивная",
+      "description": "Легкая обувь для бега с амортизацией.",
+      "price": 8500,
+      "category": "обувь",
+      "brand": "Nike",
+      "in_stock": false,
+      "discount": null,
+      "quantity_in_stock": 0
+    },
+    {
+      "id": 4,
+      "name": "Сумка женская",
+      "description": "Женская сумочка из натуральной кожи.",
+      "price": 18000,
+      "category": "аксессуары",
+      "brand": "Gucci",
+      "in_stock": true,
+      "discount": 15,
+      "quantity_in_stock": 10
+    },
+    {
+      "id": 5,
+      "name": "Планшет",
+      "description": "Компактный планшет с большим дисплеем и аккумулятором.",
+      "price": 28000,
+      "category": "электроника",
+      "brand": "Apple",
+      "in_stock": true,
+      "discount": null,
+      "quantity_in_stock": 8
+    },
+    {
+      "id": 6,
+      "name": "Кроссовки",
+      "description": "Мужские кроссовки для повседневной носки.",
+      "price": 6500,
+      "category": "обувь",
+      "brand": "Puma",
+      "in_stock": true,
+      "discount": 5,
+      "quantity_in_stock": 12
+    },
+    {
+      "id": 7,
+      "name": "Штаны спортивные",
+      "description": "Спортивные штаны из эластичного материала.",
+      "price": 2500,
+      "category": "одежда",
+      "brand": "Reebok",
+      "in_stock": true,
+      "discount": null,
+      "quantity_in_stock": 20
+    },
+    {
+      "id": 8,
+      "name": "Ноутбук",
+      "description": "Производительный ноутбук с высоким разрешением экрана.",
+      "price": 75000,
+      "category": "электроника",
+      "brand": "Lenovo",
+      "in_stock": true,
+      "discount": 10,
+      "quantity_in_stock": 3
+    },
+    {
+      "id": 9,
+      "name": "Зонт",
+      "description": "Удобный складной зонт с прочным каркасом.",
+      "price": 1500,
+      "category": "аксессуары",
+      "brand": "Tefal",
+      "in_stock": true,
+      "discount": null,
+      "quantity_in_stock": 18
+    },
+    {
+      "id": 10,
+      "name": "Куртка осенняя",
+      "description": "Водонепроницаемая куртка для прохладной погоды.",
+      "price": 5500,
+      "category": "одежда",
+      "brand": "Columbia",
+      "in_stock": true,
+      "discount": 20,
+      "quantity_in_stock": 7
+    }
+  ]
+}
