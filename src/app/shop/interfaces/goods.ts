@@ -8,4 +8,6 @@ export interface GoodsItem {
   in_stock: boolean;
   discount: number;
   quantity_in_stock: number;
+  charged_person_email: string;
+  charged_person_phone: string;
 }

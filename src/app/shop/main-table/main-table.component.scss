@@ -1,0 +1,17 @@
+:host {
+  width: 100%;
+  height: 100%;
+}
+.tab-header {
+  height: 3rem;
+  overflow: auto;
+}
+.tab-header > tr > th {
+  position: sticky;
+  top: -1px;
+  z-index: 1
+}
+.tab-body {
+  max-height: calc(100% - 3rem);
+  overflow: scroll;
+}
