@@ -3,7 +3,7 @@ import { BehaviorSubject, filter, map, Observable } from 'rxjs';
 import { GoodsItem } from '../interfaces/goods';
 import { HttpClient } from '@angular/common/http';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { environment } from '@environment/';
+import { environment } from '@environment';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +31,7 @@ export class GoodsService {
       )
       .subscribe(
         data => {
-          console.log(data);
+          //console.log(data);
           this._goods.next(data);
         },
       )
