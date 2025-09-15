@@ -8,39 +8,29 @@
 	</div>
 	<div class="modal-body">
 		<form [formGroup]="mainFormGroup">
-      <div class="form-group row">
-        <div class="col-sm-5">
-          <label for="itemName">Name</label>
-          <app-string-input id="itemName" formControlName="name" />
-        </div>
-      </div>
-      <div class="form-group row">
-        <div class="col-sm-5">
-          <label for="itemDesc">Description</label>
-          <app-textarea-input id="itemDesc" formControlName="description" />
-        </div>
-      </div>
-      <div class="form-group row">
-        <div class="col-sm-5">
-          <label for="itemPr">Price</label>
-          <app-number-input id="itemPr" formControlName="price" />
-        </div>
-      </div>
-      <div class="form-group row">
-        <div class="col-sm-5">
-          <label for="itemPr">Category</label>
-          <app-string-input id="itemPr" formControlName="category" />
-        </div>
-      </div>
-      <div class="form-group row">
-        <div class="col-sm-5">
-          <label for="itembrand">Brand</label>
-          <app-string-input id="itembrand" formControlName="brand" />
+      <div class="container">
+        <div class="row">
+          <div class="col-md">
+            <app-string-input formControlName="name" inputTitle="Name" />
+            <app-textarea-input formControlName="description" inputTitle="Description" />
+            <app-number-input formControlName="price" inputTitle="Price"/>
+            <app-string-input formControlName="category" inputTitle="Category" />
+            <app-string-input formControlName="brand" inputTitle="Brand" />
+          </div>
+          <div class="col-md">
+            <app-checkbox formControlName="in_stock" inputTitle="In Stock" />
+            <app-number-input formControlName="discount" inputTitle="Discount" />
+            <app-number-input formControlName="quantity_in_stock" inputTitle="Quantity" />
+            <app-string-input formControlName="charged_person_email" inputTitle="Charged Person Email" />
+            <app-string-input formControlName="charged_person_phone" inputTitle="Charged Person Phone" />
+          </div>
         </div>
       </div>
 		</form>
 	</div>
 	<div class="modal-footer">
-		<button type="button" class="btn btn-outline-secondary" (click)="modal.close('Save click')">Save</button>
+    <!--<button type="button" class="btn btn-outline-secondary" (click)="log()">Log</button> -->
+    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('button click')">Close</button>
+		<button type="button" class="btn" [class.btn-outline-success]="mainFormGroup.invalid" [class.btn-success]="mainFormGroup.valid" (click)="save()">Save</button>
 	</div>
 </ng-template>

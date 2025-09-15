@@ -3,7 +3,7 @@
     <app-control-panel />
   </div>
   <div class="d-flex flex-row justify-content-start align-items-center flex-grow-1 overflow-auto w-100 goods-data">
-    <app-main-table />
+    <app-main-table (editEvent)="tableEditHandler($event)" (removeEvent)="tableRemoveHandler($event)" />
   </div>
 </div>
-<app-form />
+<app-form (addItem)="formAddHandler($event)" (editItem)="formEditHandler($event)" />

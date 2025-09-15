@@ -1,22 +1,20 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { EditorEvent, FormAction } from '../interfaces/editor-event';
 
-export enum FormAction {
-  'add',
-  'edit',
-  'close'
-}
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventsService {
-  private _formModalStatus = new BehaviorSubject<FormAction>(FormAction.close);
+  private _formModalStatus = new BehaviorSubject<EditorEvent>({ action: FormAction.close });
   get formModalStatus$(){
     return this._formModalStatus.asObservable()
   }
-  setModalStatus(status: FormAction){
-    this._formModalStatus.next(status)
+  setModalEvent(event: EditorEvent){
+    this._formModalStatus.next(event)
   }
-
+  closeFormModal(){
+    this._formModalStatus.next({ action: FormAction.close })
+  }
 }

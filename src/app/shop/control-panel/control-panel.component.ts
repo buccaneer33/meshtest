@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { EventsService, FormAction } from '../services/events.service';
+import { EventsService } from '../services/events.service';
+import { FormAction } from '../interfaces/editor-event';
 
 @Component({
   selector: 'app-control-panel',
@@ -10,7 +11,6 @@ import { EventsService, FormAction } from '../services/events.service';
 export class ControlPanelComponent {
   events = inject(EventsService)
   add(){
-    this.events.setModalStatus(FormAction.add);
+    this.events.setModalEvent({ action: FormAction.add });
   }
-
 }

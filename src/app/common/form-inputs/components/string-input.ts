@@ -9,20 +9,27 @@ export const VALUE_ACCESSOR_PROVIDER = [
     useExisting: forwardRef(() => StringInputComponent),
     multi: true
   },
-  /*{
+  {
     provide: NG_VALIDATORS,
     multi: true,
     useExisting: forwardRef(() => StringInputComponent),
-  },*/
+  }
 ];
 
 @Component({
   standalone: true,
   selector: 'app-string-input',
   imports: [FormsModule],
-  providers: [VALUE_ACCESSOR_PROVIDER], // Регистрируем провайдеры
+  providers: [VALUE_ACCESSOR_PROVIDER],
   template: `
-    <input type="text" class="form-control" [(ngModel)]="innerValue" (blur)="notifyTouched()"/>
-  `
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <label class="col-sm-10 col-form-label col-form-label-sm">{{ this.inputTitle() }}</label>
+        <input type="text" class="form-control form-control-sm" [(ngModel)]="value" (change)="onChange()" (keyup)="onTouch()" />
+        @if(validationText()){
+          <div class="invalid-feedback d-block">{{validationText()}}</div>
+        }
+      </div>
+    </div>`
 })
 export class StringInputComponent extends AbstractInputComponent {}

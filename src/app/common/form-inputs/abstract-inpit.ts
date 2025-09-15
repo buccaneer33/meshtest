@@ -1,44 +1,44 @@
-import { Directive } from '@angular/core';
-import { ControlValueAccessor } from '@angular/forms';
-
-// Настройка провайдеров для управления Value Accessor
+import { Directive, input, signal } from '@angular/core';
+import { ControlValueAccessor, FormControl, ValidationErrors } from '@angular/forms';
+import { getErrorText } from '@common/validationErrors';
 
 @Directive({})
 export abstract class AbstractInputComponent implements ControlValueAccessor {
-  // Текущее значение элемента
-  protected innerValue: any = null;
+  value: any = null;
+  inputTitle = input<string>();
+  validationText = signal<string | null>(null);
 
-  // Callbacks для обновления формы
-  private onChangeCallback: Function = () => {};
-  private onTouchedCallback: Function = () => {};
-
-  // Метод установки нового значения
-  writeValue(value: any): void {
-    this.innerValue = value;
+  writeValue(data: any) {
+    this.value = data;
+  }
+  registerOnChange(fn: any) {
+    this.propagateChange = fn;
+  }
+  registerOnTouched(fn: any) {
+    this.propagateTouch = fn;
   }
 
-  // Регистрация колбека для отправки изменений в форму
-  registerOnChange(fn: Function): void {
-    this.onChangeCallback = fn;
+  onChange(value?: any) {
+    this.propagateChange(this.value);
+  }
+  onTouch(value?: any){
+    this.propagateTouch(this.value);
   }
 
-  // Регистрация колбека для уведомления формы о касании
-  registerOnTouched(fn: Function): void {
-    this.onTouchedCallback = fn;
-  }
+  propagateChange = (_: any) => { };
+  propagateTouch = (_: any) => { };
 
-  // Метод оповещения формы о новом значении
-  notifyForm(value: any) {
-    this.onChangeCallback(value);
-  }
-
-  // Оповещение формы о событии касания
-  notifyTouched() {
-    this.onTouchedCallback();
-  }
-
-  // Возможность устанавливать свойство "disabled"
-  setDisabledState?(isDisabled: boolean): void {
-    console.log(`Disabling component with value ${isDisabled}`);
+  validate(c: FormControl) {
+   setTimeout(() => {
+    if(c.touched && c.invalid){
+      const error = c.errors;
+      console.log(error)
+      if(error){
+        this.validationText.set(getErrorText(Object.keys(c.errors)[0]))
+      }
+    } else {
+      this.validationText.set(null);
+    }
+   }, 300)
   }
 }

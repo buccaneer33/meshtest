@@ -1,7 +1,8 @@
-<table class="table">
+<table class="table table-sm">
   <thead class="thead-light tab-header">
     <tr>
-      <th scope="col" >#</th>
+      <th scope="col" style="width: 2%;"></th>
+      <th scope="col">#</th>
       <th scope="col">Title</th>
       <th scope="col">Description</th>
       <th scope="col">Price</th>
@@ -18,6 +19,15 @@
     @for (item of (goodsList$ | async); track item.id) {
       @defer (on viewport; prefetch on idle) {
         <tr>
+          <th scope="row">
+            <div class="dropdown">
+              <button class="dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"></button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" (click)="edit(item)">Edit</a>
+                <a class="dropdown-item" (click)="remove(item)">Delete</a>
+              </div>
+            </div>
+          </th>
           <th scope="row">{{item.id}}</th>
           <th scope="row">{{item.name}}</th>
           <th scope="row">{{item.description}}</th>
@@ -32,9 +42,9 @@
         </tr>
       }
       @placeholder {
-        <div class="page-placeholder">
-          <p>Placeholder</p>
-        </div>
+        <tr>
+          <th scope="row">Loading...</th>
+        </tr>
       }
     }
   </tbody>

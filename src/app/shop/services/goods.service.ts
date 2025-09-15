@@ -31,9 +31,17 @@ export class GoodsService {
       )
       .subscribe(
         data => {
-          //console.log(data);
           this._goods.next(data);
         },
       )
+  }
+  addGoodsItem(data: GoodsItem) {
+    return this.http.put(environment.updateDataUrl, { body: data })
+  }
+  updateGoodsItem(data: GoodsItem){
+    return this.http.post(environment.updateDataUrl, { body: data })
+  }
+  removeGoodsItem(data: GoodsItem){
+    return this.http.delete(environment.updateDataUrl, { body: data })
   }
 }

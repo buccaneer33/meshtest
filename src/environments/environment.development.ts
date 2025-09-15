@@ -1,5 +1,6 @@
 export const environment = {
   production: false,
   dataUrl: '',
-  assetData: './assets'
+  assetData: './assets',
+  updateDataUrl: 'update'
 };

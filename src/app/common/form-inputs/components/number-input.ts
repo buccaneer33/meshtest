@@ -9,20 +9,28 @@ export const VALUE_ACCESSOR_PROVIDER = [
     useExisting: forwardRef(() => NumberInputComponent),
     multi: true
   },
-  /*{
+  {
     provide: NG_VALIDATORS,
     multi: true,
     useExisting: forwardRef(() => NumberInputComponent),
-  },*/
+  }
 ];
 
 @Component({
   standalone: true,
   selector: 'app-number-input',
   imports: [FormsModule],
-  providers: [VALUE_ACCESSOR_PROVIDER], // Регистрируем провайдеры
+  providers: [VALUE_ACCESSOR_PROVIDER],
   template: `
-    <input type="number" class="form-control" [(ngModel)]="innerValue" (blur)="notifyTouched()"/>
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <label class="col-sm-10 col-form-label col-form-label-sm">{{ this.inputTitle() }}</label>
+        <input type="number" class="form-control form-control-sm" [(ngModel)]="value" (change)="onChange()" (keyup)="onTouch()" />
+        @if(validationText()){
+          <div class="invalid-feedback d-block">{{validationText()}}</div>
+        }
+      </div>
+    </div>
   `
 })
 export class NumberInputComponent extends AbstractInputComponent {}
