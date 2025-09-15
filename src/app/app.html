@@ -1,12 +1,10 @@
-<article class="main">
-  <header class="header">
+<article class="d-flex flex-column w-100 h-100 justify-content-between align-items-center">
+  <header class="d-flex flex-row w-100 bg-primary text-white header">
     <h4>{{ title() }}</h4>
     <app-app-menu />
   </header>
-  <main class="content">
+  <main class="d-flex flex-row w-100 justify-content-start align-items-center flex-grow-1 bg-light main">
     <router-outlet />
   </main>
-  <footer class="footer"></footer>
+  <footer class="d-flex flex-row w-100 bg-secondary text-white footer">@copirights</footer>
 </article>
-
-
